@@ -17,7 +17,7 @@ export interface BaseEvent {
   id: string;
   eventType: TAvailableEventType;
   eventName: string;
-  properties?: PredefinedProperties & { [key: string]: any };
+  properties?: PredefinedProperties & Record<string, any>;
 }
 
 export interface PredefinedProperties {

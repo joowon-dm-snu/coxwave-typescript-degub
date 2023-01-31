@@ -10,8 +10,8 @@ export {
 } from './base-event';
 export { SpecialFeedbackPropertyKey, TSpecialFeedbackPropertyKey, FeedbackProperties, FeedbackEvent } from './feedback';
 export {
-  LoggableGenerationMedia,
-  TLoggableGenerationMedia,
+  MediaType,
+  TMediaType,
   SpecialGenerationPropertyKey,
   TSpecialGenerationPropertyKey,
   GenerationIOEntity,
@@ -21,12 +21,15 @@ export {
 export {
   SpecialIdentifyPropertyKey,
   TSpecialIdentifyPropertyKey,
-  IdentifyUserProperties,
+  IdentifyProperties,
   Identify,
   IdentifyOperation,
   IdentifyRegisterEvent,
+  IdentifyRegisterProperties,
   IdentifyUserEvent,
+  IdentifyUserProperties,
   IdentifyAliasEvent,
+  IdentifyAliasProperties,
 } from './identity';
 
 import { ActivityEvent } from './activity';

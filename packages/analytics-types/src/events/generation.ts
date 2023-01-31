@@ -1,18 +1,20 @@
 import { BaseEvent } from './base-event';
 
-export const LoggableGenerationMedia = ['text', 'image', 'audio', 'video'] as const;
-export type TLoggableGenerationMedia = (typeof LoggableGenerationMedia)[number];
+export const MediaType = {
+  TEXT: 'text',
+} as const;
+export type TMediaType = (typeof MediaType)[keyof typeof MediaType];
 
-export const SpecialGenerationPropertyKey = ['model_id', 'input', 'output'] as const;
+export const SpecialGenerationPropertyKey = ['modelId', 'input', 'output'] as const;
 export type TSpecialGenerationPropertyKey = (typeof SpecialGenerationPropertyKey)[number];
 
 export interface GenerationIOEntity {
-  type: TLoggableGenerationMedia;
+  type: TMediaType;
   value: number | string | Array<string | number>;
 }
 
 export interface GenerationProperties extends Record<string, any> {
-  model_id?: string;
+  modelId?: string;
   input?: {
     [key: string]: GenerationIOEntity | number | string | boolean;
   };

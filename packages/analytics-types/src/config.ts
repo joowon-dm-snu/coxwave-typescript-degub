@@ -4,8 +4,8 @@ import { SessionManager, UserSession } from './session-manager';
 import { Storage } from './storage';
 import { Transport, TTransportType } from './transport';
 
-export const ServerZone = ['US', 'EU'] as const;
-export type TServerZone = (typeof ServerZone)[number];
+export const ServerZone = { US: 'US', EU: 'EU' } as const;
+export type TServerZone = (typeof ServerZone)[keyof typeof ServerZone];
 
 export interface Config {
   projectToken: string;

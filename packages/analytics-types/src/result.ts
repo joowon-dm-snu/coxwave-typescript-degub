@@ -1,8 +1,8 @@
-import { Event } from './events';
+import { BaseEvent } from './events';
 
 export interface Result {
   id: string;
-  event: Event;
+  event: BaseEvent;
   code: number;
   message: string;
   body: Record<string, number | string>;

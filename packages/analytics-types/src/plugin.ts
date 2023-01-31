@@ -21,7 +21,7 @@ export type TPluginCoverage = (typeof PluginCoverage)[keyof typeof PluginCoverag
 export interface BeforePlugin {
   name: string;
   type: TPluginType;
-  coverage: TPluginCoverage;
+  coverage?: TPluginCoverage;
   setup(config: Config): Promise<void>;
   execute(context: Event): Promise<Event>;
 }
@@ -29,7 +29,7 @@ export interface BeforePlugin {
 export interface EnrichmentPlugin {
   name: string;
   type: TPluginType;
-  coverage: TPluginCoverage;
+  coverage?: TPluginCoverage;
   setup(config: Config): Promise<void>;
   execute(context: Event): Promise<Event>;
 }
@@ -37,7 +37,7 @@ export interface EnrichmentPlugin {
 export interface DestinationPlugin {
   name: string;
   type: TPluginType;
-  coverage: TPluginCoverage;
+  coverage?: TPluginCoverage;
   setup(config: Config): Promise<void>;
   execute(context: Event): Promise<Result>;
   flush?(): Promise<void>;
