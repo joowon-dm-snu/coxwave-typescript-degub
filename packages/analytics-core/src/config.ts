@@ -6,6 +6,7 @@ import {
   LogLevel,
   Storage,
   Transport,
+  ServerZone,
   TServerZone,
 } from '@coxwave/analytics-types';
 
@@ -25,7 +26,7 @@ export const getDefaultConfig = () => ({
   loggerProvider: new Logger(),
   optOut: false,
   serverUrl: COXWAVE_SERVER_URL,
-  serverZone: 'US' as TServerZone,
+  serverZone: ServerZone.US,
   useBatch: false,
 });
 
@@ -86,8 +87,9 @@ export const createServerConfig = (
     return { serverUrl, serverZone: undefined };
   }
 
+  const _serverZone = [ServerZone.US, ServerZone.EU].includes(serverZone) ? serverZone : getDefaultConfig().serverZone;
   return {
-    serverZone: serverZone,
-    serverUrl: getServerUrl(serverZone, useBatch),
+    serverZone: _serverZone,
+    serverUrl: getServerUrl(_serverZone, useBatch),
   };
 };

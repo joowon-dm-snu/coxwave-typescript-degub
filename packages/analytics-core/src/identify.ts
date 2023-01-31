@@ -1,18 +1,19 @@
-import { ValidPropertyType, Identify as IIdentify, IdentifyUserProperties } from '@coxwave/analytics-types';
+import { ValidPropertyType, Identify as IIdentify, IdentifyProperties } from '@coxwave/analytics-types';
 
 import { isValidProperties } from './utils/valid-properties';
 
 export class Identify implements IIdentify {
   protected readonly _propertySet: Set<string> = new Set<string>();
-  protected _properties: IdentifyUserProperties = {};
+  protected _properties: IdentifyProperties = {};
 
-  public getUserProperties(): IdentifyUserProperties {
+  public getUserProperties(): IdentifyProperties {
     return { ...this._properties };
   }
 
   public set(property: string, value: ValidPropertyType): IIdentify {
     if (this._validate('$set', property, value)) {
       this._properties[property] = value;
+      this._propertySet.add(property);
     }
     return this;
   }

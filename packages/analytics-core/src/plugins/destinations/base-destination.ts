@@ -40,7 +40,7 @@ export class _BaseDestination implements DestinationPlugin {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   config: Config;
-  private scheduled: ReturnType<typeof setTimeout> | null = null;
+  protected scheduled: ReturnType<typeof setTimeout> | null = null;
   queue: Context[] = [];
 
   async setup(config: Config): Promise<undefined> {
@@ -133,9 +133,9 @@ export class _BaseDestination implements DestinationPlugin {
       return this.fulfillRequest(list, 400, MISSING_PROJECT_TOKEN_MESSAGE);
     }
     const projectToken = this.config.projectToken;
-    const payload = this._createPayload(list);
 
     try {
+      const payload = this._createPayload(list);
       const { serverUrl } = createServerConfig(this.config.serverUrl, this.config.serverZone, this.config.useBatch);
       const endpointUrl = this._createEndpointUrl(serverUrl);
 
@@ -227,19 +227,17 @@ export class _BaseDestination implements DestinationPlugin {
   }
 
   handleRateLimitResponse(res: RateLimitResponse, list: Context[]) {
-    // const dropDistinctIds = Object.keys(res.body.exceededDailyQuotaUsers);
+    const dropDistinctIds = Object.keys(res.body.exceededDailyQuotaUsers);
     const dropDeviceIds = Object.keys(res.body.exceededDailyQuotaDevices);
     const throttledIndex = res.body.throttledEvents;
-    // const dropDistinctIdsSet = new Set(dropDistinctIds);
+    const dropDistinctIdsSet = new Set(dropDistinctIds);
     const dropDeviceIdsSet = new Set(dropDeviceIds);
     const throttledIndexSet = new Set(throttledIndex);
 
     const retry = list.filter((context, index) => {
       if (
-        // TODO: user-id changed to distinct-id or alias
-        //(context.event.distinctId && dropDistinctIdsSet.has(context.event.distinctId)) ||
-        context.event.properties?.$distinctId &&
-        dropDeviceIdsSet.has(context.event.properties?.$distinctId)
+        (context.event.properties?.$distinctId && dropDistinctIdsSet.has(context.event.properties?.$distinctId)) ||
+        (context.event.properties?.$deviceId && dropDeviceIdsSet.has(context.event.properties?.$deviceId))
       ) {
         this.fulfillRequest([context], res.statusCode, res.body.error);
         return;

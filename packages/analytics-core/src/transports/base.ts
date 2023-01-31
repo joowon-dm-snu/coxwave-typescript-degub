@@ -4,7 +4,7 @@
 import { Payload, Response, TStatus, Status, Transport } from '@coxwave/analytics-types';
 
 export class BaseTransport implements Transport {
-  send(_serverUrl: string, _payload: Payload, _projectToken: string): Promise<Response | null> {
+  send(_serverUrl: string, _payload: Payload, _projectToken?: string): Promise<Response | null> {
     return Promise.resolve(null);
   }
 
