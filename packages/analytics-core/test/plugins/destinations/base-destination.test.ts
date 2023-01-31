@@ -243,6 +243,20 @@ describe('destination', () => {
     });
   });
 
+  describe('_createPayload', () => {
+    test('should throw implement error', () => {
+      const destination = new _BaseDestination();
+      expect(() => destination._createPayload([])).toThrow('Not implemented');
+    });
+  });
+
+  describe('_createEndpointUrl', () => {
+    test('should throw implement error', () => {
+      const destination = new _BaseDestination();
+      expect(() => destination._createEndpointUrl('')).toThrow('Not implemented');
+    });
+  });
+
   describe('send', () => {
     test('should not retry', async () => {
       const destination = new _BaseDestination();
@@ -650,6 +664,58 @@ describe('destination', () => {
         body: {},
       });
       expect(transportProvider.send).toHaveBeenCalledTimes(1);
+    });
+
+    test('should handle retry for 429 error only if Ids are provided', async () => {
+      class Http {
+        send = jest
+          .fn()
+          .mockImplementationOnce(() => {
+            return Promise.resolve({
+              status: Status.RateLimit,
+              statusCode: 429,
+              body: {
+                error: 'error',
+                epsThreshold: 1,
+                throttledDevices: {},
+                throttledUsers: {},
+                exceededDailyQuotaDevices: {
+                  '1': 1,
+                },
+                exceededDailyQuotaUsers: {
+                  '2': 1,
+                },
+              },
+            });
+          })
+          .mockImplementation(() => {
+            return Promise.resolve(successResponse);
+          });
+      }
+      const transportProvider = new Http();
+      const destination = new _BaseDestination();
+      const _createPayload = jest.fn();
+      const _createEndpointUrl = jest.fn();
+      destination.retryTimeout = 10;
+      destination.throttleTimeout = 1;
+      const config = {
+        ...useDefaultConfig(),
+        flushQueueSize: 4,
+        flushIntervalMillis: 500,
+        transportProvider,
+      };
+      await destination.setup(config);
+      destination._createPayload = _createPayload;
+      destination._createEndpointUrl = _createEndpointUrl;
+      const results = await Promise.all([
+        destination.execute({
+          id: 'uuid',
+          eventType: AvailableEventType.TRACK,
+          eventName: 'eventName',
+        }),
+      ]);
+      expect(results[0].code).toBe(200);
+      expect(transportProvider.send).toHaveBeenCalledTimes(2);
     });
 
     test('should handle retry for 413 error', async () => {

@@ -10,12 +10,7 @@ import {
   createIdentifyAliasEvent,
 } from '../../src/utils/event-builder';
 import { uuidPattern } from '../helpers/constants';
-
-createLogEvent;
-createFeedbackEvent;
-createIdentifyRegisterEvent;
-createIdentifyUserEvent;
-createIdentifyAliasEvent;
+import { ALIAS_NAME, DISTINCT_ID } from '../helpers/default';
 
 describe('event-builder', () => {
   const uuid: string = expect.stringMatching(uuidPattern) as string;
@@ -133,7 +128,19 @@ describe('event-builder', () => {
     });
   });
 
-  describe('createIdentifyEvent', () => {
+  describe('createIdentifyRegisterEvent', () => {
+    test('should create event', () => {
+      const event = createIdentifyRegisterEvent(DISTINCT_ID);
+      expect(event).toEqual({
+        id: uuid,
+        eventType: AvailableEventType.IDENTIFY,
+        eventName: SpecialEventName.REGISTER,
+        distinctId: DISTINCT_ID,
+      });
+    });
+  });
+
+  describe('createIdentifyUserEvent', () => {
     test('should create event', () => {
       const alias = 'TEST_USER';
       const identify = new Identify();
@@ -158,6 +165,30 @@ describe('event-builder', () => {
         eventType: AvailableEventType.IDENTIFY,
         eventName: SpecialEventName.IDENTIFY,
         alias: 'TEST_USER',
+      });
+    });
+
+    test('should handle missing identify', () => {
+      const alias = 'TEST_USER';
+      const event = createIdentifyUserEvent(alias);
+      expect(event).toEqual({
+        id: uuid,
+        eventType: AvailableEventType.IDENTIFY,
+        eventName: SpecialEventName.IDENTIFY,
+        alias: 'TEST_USER',
+      });
+    });
+  });
+
+  describe('createIdentifyAliasEvent', () => {
+    test('should create event', () => {
+      const event = createIdentifyAliasEvent(ALIAS_NAME, DISTINCT_ID);
+      expect(event).toEqual({
+        id: uuid,
+        eventType: AvailableEventType.IDENTIFY,
+        eventName: SpecialEventName.ALIAS,
+        alias: ALIAS_NAME,
+        distinctId: DISTINCT_ID,
       });
     });
   });

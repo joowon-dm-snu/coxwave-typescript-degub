@@ -3,7 +3,12 @@ import { Event, Plugin, PluginCoverage, PluginType } from '@coxwave/analytics-ty
 import { useDefaultConfig, promiseState } from './helpers/default';
 
 import { Timeline } from '../src/timeline';
-import { createTrackEvent } from '../src/utils/event-builder';
+import {
+  createFeedbackEvent,
+  createIdentifyRegisterEvent,
+  createLogEvent,
+  createTrackEvent,
+} from '../src/utils/event-builder';
 
 describe('timeline', () => {
   let timeline = new Timeline();
@@ -135,31 +140,95 @@ describe('timeline', () => {
       expect(beforeExecute).toHaveBeenCalledTimes(0);
     });
 
-    describe('flush', () => {
-      test('should flush events', async () => {
-        const setup = jest.fn().mockReturnValueOnce(Promise.resolve(undefined));
-        const execute = jest.fn().mockReturnValue(Promise.resolve(undefined));
-        const flush = jest.fn().mockReturnValue(Promise.resolve(undefined));
-        const plugin = {
-          name: 'mock',
-          type: PluginType.DESTINATION,
-          coverage: PluginCoverage.ACTIVITY,
-          setup,
-          execute,
-          flush,
-        };
-        const config = useDefaultConfig();
-        await timeline.register(plugin, config);
-        void timeline.push(createTrackEvent('a'));
-        void timeline.push(createTrackEvent('b'));
-        void timeline.push(createTrackEvent('c'));
-        void timeline.push(createTrackEvent('d'));
-        expect(timeline.queue.length).toBe(4);
-        await timeline.flush();
-        expect(timeline.queue.length).toBe(0);
-        expect(execute).toHaveBeenCalledTimes(4);
-        expect(flush).toHaveBeenCalledTimes(1);
-      });
+    test('should handle track event', async () => {
+      const destSetup = jest.fn().mockReturnValueOnce(Promise.resolve());
+      const destExecute = jest.fn().mockImplementationOnce(() => Promise.resolve());
+      const activityDest: Plugin = {
+        name: 'plugin:before',
+        type: PluginType.DESTINATION,
+        coverage: PluginCoverage.ACTIVITY,
+        setup: destSetup,
+        execute: destExecute,
+      };
+      const config = useDefaultConfig();
+      await timeline.register(activityDest, config);
+      await timeline.apply([createTrackEvent('a'), () => ({})]);
+      expect(destExecute).toHaveBeenCalledTimes(1);
+    });
+
+    test('should handle log event', async () => {
+      const destSetup = jest.fn().mockReturnValueOnce(Promise.resolve());
+      const destExecute = jest.fn().mockImplementationOnce(() => Promise.resolve());
+      const activityDest: Plugin = {
+        name: 'plugin:before',
+        type: PluginType.DESTINATION,
+        coverage: PluginCoverage.GENERATION,
+        setup: destSetup,
+        execute: destExecute,
+      };
+      const config = useDefaultConfig();
+      await timeline.register(activityDest, config);
+      await timeline.apply([createLogEvent('a'), () => ({})]);
+      expect(destExecute).toHaveBeenCalledTimes(1);
+    });
+
+    test('should handle feedback event', async () => {
+      const destSetup = jest.fn().mockReturnValueOnce(Promise.resolve());
+      const destExecute = jest.fn().mockImplementationOnce(() => Promise.resolve());
+      const activityDest: Plugin = {
+        name: 'plugin:before',
+        type: PluginType.DESTINATION,
+        coverage: PluginCoverage.FEEDBACK,
+        setup: destSetup,
+        execute: destExecute,
+      };
+      const config = useDefaultConfig();
+      await timeline.register(activityDest, config);
+      await timeline.apply([createFeedbackEvent('a', { generationId: 'a' }), () => ({})]);
+      expect(destExecute).toHaveBeenCalledTimes(1);
+    });
+
+    test('should handle identify event', async () => {
+      const destSetup = jest.fn().mockReturnValueOnce(Promise.resolve());
+      const destExecute = jest.fn().mockImplementationOnce(() => Promise.resolve());
+      const activityDest: Plugin = {
+        name: 'plugin:before',
+        type: PluginType.DESTINATION,
+        coverage: PluginCoverage.IDENTIFY,
+        setup: destSetup,
+        execute: destExecute,
+      };
+      const config = useDefaultConfig();
+      await timeline.register(activityDest, config);
+      await timeline.apply([createIdentifyRegisterEvent('a'), () => ({})]);
+      expect(destExecute).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('flush', () => {
+    test('should flush events', async () => {
+      const setup = jest.fn().mockReturnValueOnce(Promise.resolve(undefined));
+      const execute = jest.fn().mockReturnValue(Promise.resolve(undefined));
+      const flush = jest.fn().mockReturnValue(Promise.resolve(undefined));
+      const plugin = {
+        name: 'mock',
+        type: PluginType.DESTINATION,
+        coverage: PluginCoverage.ACTIVITY,
+        setup,
+        execute,
+        flush,
+      };
+      const config = useDefaultConfig();
+      await timeline.register(plugin, config);
+      void timeline.push(createTrackEvent('a'));
+      void timeline.push(createTrackEvent('b'));
+      void timeline.push(createTrackEvent('c'));
+      void timeline.push(createTrackEvent('d'));
+      expect(timeline.queue.length).toBe(4);
+      await timeline.flush();
+      expect(timeline.queue.length).toBe(0);
+      expect(execute).toHaveBeenCalledTimes(4);
+      expect(flush).toHaveBeenCalledTimes(1);
     });
   });
 });

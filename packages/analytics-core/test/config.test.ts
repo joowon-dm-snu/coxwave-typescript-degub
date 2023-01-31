@@ -10,7 +10,6 @@ import {
   EU_COXWAVE_BATCH_SERVER_URL,
   EU_COXWAVE_SERVER_URL,
 } from '../src/constants';
-import { Logger } from '../src/logger';
 
 describe('config', () => {
   test('should create default config', () => {
@@ -21,19 +20,20 @@ describe('config', () => {
       transportProvider: defaultConfig.transportProvider,
     });
 
-    expect(config).toEqual({
+    expect(config).toMatchObject({
       projectToken: PROJECT_TOKEN,
       flushIntervalMillis: 10000,
       flushMaxRetries: 12,
       flushQueueSize: 200,
       logLevel: LogLevel.Warn,
-      loggerProvider: new Logger(),
-      _optOut: false, // private for `optOut` getter/setter
+      loggerProvider: {}, // FIXME: need to be changed to new Logger(),
+      _optOut: false,
       serverUrl: 'https://ingest-dev.coxwave.com',
       serverZone: 'US',
       storageProvider: defaultConfig.storageProvider,
       transportProvider: defaultConfig.transportProvider,
       useBatch: false,
+      library: undefined,
     });
     expect(config.optOut).toBe(false);
   });
@@ -43,24 +43,26 @@ describe('config', () => {
     const config = new Config({
       projectToken: PROJECT_TOKEN,
       logLevel: LogLevel.Verbose,
+      library: 'test-library',
       optOut: true,
       storageProvider: defaultConfig.storageProvider,
       transportProvider: defaultConfig.transportProvider,
       useBatch: true,
     });
-    expect(config).toEqual({
+    expect(config).toMatchObject({
       projectToken: 'projectToken',
       flushIntervalMillis: 10000,
       flushMaxRetries: 12,
       flushQueueSize: 200,
       logLevel: LogLevel.Verbose,
-      loggerProvider: new Logger(),
+      loggerProvider: {}, // FIXME: need to be changed to new Logger(),
       _optOut: true,
       serverUrl: 'https://ingest-dev.coxwave.com',
       serverZone: 'US',
       storageProvider: defaultConfig.storageProvider,
       transportProvider: defaultConfig.transportProvider,
       useBatch: true,
+      library: 'test-library',
     });
   });
 

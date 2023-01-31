@@ -2,7 +2,7 @@ import { AvailableEventType, Event, Plugin, PluginType, Status } from '@coxwave/
 
 import { CoxwaveCore, Identify } from '../src/index';
 
-import { useDefaultConfig } from './helpers/default';
+import { useDefaultConfig, DISTINCT_ID } from './helpers/default';
 
 import { CLIENT_NOT_INITIALIZED, OPT_OUT_MESSAGE } from '../src/messages';
 
@@ -66,11 +66,29 @@ describe('core-client', () => {
     });
   });
 
+  describe('register', () => {
+    test('should call register', async () => {
+      const dispatch = jest.spyOn(client, 'dispatch').mockReturnValueOnce(Promise.resolve(success));
+      const response = await client.register(DISTINCT_ID);
+      expect(response).toEqual(success);
+      expect(dispatch).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe('identify', () => {
     test('should call identify', async () => {
       const dispatch = jest.spyOn(client, 'dispatch').mockReturnValueOnce(Promise.resolve(success));
       const identify: Identify = new Identify();
       const response = await client.identify(alias, identify, undefined);
+      expect(response).toEqual(success);
+      expect(dispatch).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('alias', () => {
+    test('should call alias', async () => {
+      const dispatch = jest.spyOn(client, 'dispatch').mockReturnValueOnce(Promise.resolve(success));
+      const response = await client.alias(alias, DISTINCT_ID);
       expect(response).toEqual(success);
       expect(dispatch).toHaveBeenCalledTimes(1);
     });
