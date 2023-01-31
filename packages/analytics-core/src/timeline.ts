@@ -98,8 +98,6 @@ export class Timeline {
       case AvailableEventType.IDENTIFY:
         this._executeDestination(PluginCoverage.IDENTIFY, event, resolve);
         break;
-      default:
-        resolve(buildResult(event, 500, 'Event type not supported'));
     }
 
     return;

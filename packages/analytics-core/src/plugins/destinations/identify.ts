@@ -4,6 +4,7 @@ import {
   IdentifyPayload,
   PluginCoverage,
   Result,
+  SpecialEventName,
 } from '@coxwave/analytics-types';
 
 import { _BaseDestination } from './base-destination';
@@ -57,14 +58,15 @@ export class IdentifyDestination extends _BaseDestination {
 
   _createEndpointUrl(serverUrl: string, forUse: string): string {
     switch (forUse) {
-      case '$register':
+      case SpecialEventName.REGISTER:
         return serverUrl + SERVER_IDENTIFY_REGISTER_PATH;
-      case '$identify':
+      case SpecialEventName.IDENTIFY:
         return serverUrl + SERVER_IDENTIFY_IDENTIFY_PATH;
-      case '$alias':
+      case SpecialEventName.ALIAS:
         return serverUrl + SERVER_IDENTIFY_ALIAS_PATH;
+      default:
+        throw new Error(`Unknown event name: ${forUse}`);
     }
-    throw new Error(`Unknown event name: ${forUse}`);
   }
 
   // TODO: I want this execution process integrated into _BaseDestination

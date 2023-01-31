@@ -235,10 +235,10 @@ export class _BaseDestination implements DestinationPlugin {
     const throttledIndexSet = new Set(throttledIndex);
 
     const retry = list.filter((context, index) => {
-      if (
-        (context.event.properties?.$distinctId && dropDistinctIdsSet.has(context.event.properties?.$distinctId)) ||
-        (context.event.properties?.$deviceId && dropDeviceIdsSet.has(context.event.properties?.$deviceId))
-      ) {
+      const distinctId = context.event.properties?.$distinctId;
+      const deviceId = context.event.properties?.$deviceId;
+
+      if ((distinctId && dropDistinctIdsSet.has(distinctId)) || (deviceId && dropDeviceIdsSet.has(deviceId))) {
         this.fulfillRequest([context], res.statusCode, res.body.error);
         return;
       }

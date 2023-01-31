@@ -28,6 +28,7 @@ export const getDefaultConfig = () => ({
   serverUrl: COXWAVE_SERVER_URL,
   serverZone: ServerZone.US,
   useBatch: false,
+  library: undefined,
 });
 
 export class Config implements IConfig {
@@ -35,12 +36,13 @@ export class Config implements IConfig {
   flushIntervalMillis: number;
   flushMaxRetries: number;
   flushQueueSize: number;
-  loggerProvider: ILogger;
   logLevel: LogLevel;
+  loggerProvider: ILogger;
+  library?: string;
   serverUrl: string | undefined;
   serverZone?: TServerZone;
-  transportProvider: Transport;
   storageProvider?: Storage<Event[]>;
+  transportProvider: Transport;
   useBatch: boolean;
 
   private _optOut = false;
@@ -59,12 +61,12 @@ export class Config implements IConfig {
     this.flushQueueSize = options.flushQueueSize || defaultConfig.flushQueueSize;
     this.loggerProvider = options.loggerProvider || defaultConfig.loggerProvider;
     this.logLevel = options.logLevel ?? defaultConfig.logLevel;
+    this.library = options.library ?? defaultConfig.library;
     this.optOut = options.optOut ?? defaultConfig.optOut;
     this.storageProvider = options.storageProvider;
     this.transportProvider = options.transportProvider;
     this.useBatch = options.useBatch ?? defaultConfig.useBatch;
     this.loggerProvider.enable(this.logLevel);
-
     const serverConfig = createServerConfig(options.serverUrl, options.serverZone, options.useBatch);
     this.serverZone = serverConfig.serverZone;
     this.serverUrl = serverConfig.serverUrl;
