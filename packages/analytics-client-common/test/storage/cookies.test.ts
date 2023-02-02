@@ -68,7 +68,7 @@ describe('cookies', () => {
     test('should set restricted cookie value with options', async () => {
       const cookies = new CookieStorage({
         expirationDays: 365,
-        domain: '.amplitude.com',
+        domain: '.coxwave.com',
         secure: true,
         sameSite: 'Lax',
       });
