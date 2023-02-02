@@ -1,6 +1,6 @@
 {
   "name": "@coxwave/analytics-browser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Official Coxwave SDK for Web",
   "keywords": [
     "analytics",
@@ -42,9 +42,9 @@
     "url": "https://github.com/coxwave/coxwave-typescript/issues"
   },
   "dependencies": {
-    "@coxwave/analytics-client-common": "^0.0.1",
-    "@coxwave/analytics-core": "^0.0.1",
-    "@coxwave/analytics-types": "^0.0.1",
+    "@coxwave/analytics-client-common": "^0.1.0",
+    "@coxwave/analytics-core": "^0.1.0",
+    "@coxwave/analytics-types": "^0.1.0",
     "@coxwave/ua-parser-js": "^0.7.33",
     "tslib": "^2.4.1"
   },
