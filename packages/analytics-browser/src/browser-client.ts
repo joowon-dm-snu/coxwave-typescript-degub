@@ -10,7 +10,7 @@ import {
   GenerationDestination,
   FeedbackDestination,
   IdentifyDestination,
-} from '@coxwave/analytics-core';
+} from '@joowon.kim/analytics-core';
 import {
   BrowserClient,
   BrowserConfig,
@@ -18,7 +18,7 @@ import {
   Identify as IIdentify,
   Result,
   TTransportType,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { useBrowserConfig, createTransport } from './config';
 import { Context } from './plugins/context';

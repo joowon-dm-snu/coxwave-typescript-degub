@@ -3,13 +3,12 @@ import {
   FeedbackPayload,
   FeedbackEvent,
   PluginCoverage,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { SERVER_FEEDBACKS_PATH } from '../../constants';
+import { syncServerSpec } from '../../utils/payload';
 
 import { _BaseDestination } from './base-destination';
-
-import { syncServerSpec } from '../../utils/payload';
 
 export class FeedbackDestination extends _BaseDestination {
   name = 'coxwave-feedback-destination';

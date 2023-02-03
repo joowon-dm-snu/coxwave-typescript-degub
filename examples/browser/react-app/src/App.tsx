@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { track, log, feedback, identify, Identify } from '@coxwave/analytics-browser';
+import { track, log, feedback, identify, Identify } from '@joowon.kim/analytics-browser';
 
 function App() {
   useEffect(() => {

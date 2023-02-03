@@ -1,4 +1,4 @@
-import { getGlobalScope } from '@coxwave/analytics-client-common';
+import { getGlobalScope } from '@joowon.kim/analytics-client-common';
 
 import { runQueuedFunctions } from './utils/snippet-helper';
 

@@ -1,4 +1,5 @@
-import { getLanguage } from '@coxwave/analytics-client-common';
+import UAParser from '@coxwave/ua-parser-js';
+import { getLanguage } from '@joowon.kim/analytics-client-common';
 import {
   PredefinedProperties,
   BeforePlugin,
@@ -7,8 +8,7 @@ import {
   PluginType,
   PluginCoverage,
   TPluginCoverage,
-} from '@coxwave/analytics-types';
-import UAParser from '@coxwave/ua-parser-js';
+} from '@joowon.kim/analytics-types';
 
 import { VERSION } from '../version';
 

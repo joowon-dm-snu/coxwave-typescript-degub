@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-import { Payload, Response, TStatus, Status, Transport } from '@coxwave/analytics-types';
+import { Payload, Response, TStatus, Status, Transport } from '@joowon.kim/analytics-types';
 
 export class BaseTransport implements Transport {
   send(_serverUrl: string, _payload: Payload, _projectToken?: string): Promise<Response | null> {

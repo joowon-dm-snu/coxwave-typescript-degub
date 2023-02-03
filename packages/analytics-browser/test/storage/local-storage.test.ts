@@ -1,4 +1,4 @@
-import * as AnalyticsClientCommon from '@coxwave/analytics-client-common';
+import * as AnalyticsClientCommon from '@joowon.kim/analytics-client-common';
 
 import { LocalStorage } from '../../src/storage/local-storage';
 

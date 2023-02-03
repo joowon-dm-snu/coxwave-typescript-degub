@@ -1,4 +1,4 @@
-import { LogLevel, Logger as ILogger } from '@coxwave/analytics-types';
+import { LogLevel, Logger as ILogger } from '@joowon.kim/analytics-types';
 
 const PREFIX = 'Coxwave Logger ';
 

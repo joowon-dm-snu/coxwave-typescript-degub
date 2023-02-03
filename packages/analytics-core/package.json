@@ -34,7 +34,7 @@
     "url": "https://github.com/coxwave/coxwave-typescript/issues"
   },
   "dependencies": {
-    "@coxwave/analytics-types": "^0.1.0",
+    "@joowon.kim/analytics-types": "^0.2.0",
     "tslib": "^2.4.1"
   },
   "files": [

@@ -1,10 +1,9 @@
-import { AvailableEventType, Event, Plugin, PluginType, Status } from '@coxwave/analytics-types';
+import { AvailableEventType, Event, Plugin, PluginType, Status } from '@joowon.kim/analytics-types';
 
 import { CoxwaveCore, Identify } from '../src/index';
+import { CLIENT_NOT_INITIALIZED, OPT_OUT_MESSAGE } from '../src/messages';
 
 import { useDefaultConfig, DISTINCT_ID } from './helpers/default';
-
-import { CLIENT_NOT_INITIALIZED, OPT_OUT_MESSAGE } from '../src/messages';
 
 describe('core-client', () => {
   const success = {

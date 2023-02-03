@@ -1,1 +1,1 @@
-# @coxwave/analytics-types
+# @joowon.kim/analytics-types

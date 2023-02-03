@@ -3,13 +3,12 @@ import {
   GenerationPayload,
   GenerationEvent,
   PluginCoverage,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { SERVER_GENERATIONS_PATH } from '../../constants';
+import { syncServerSpec } from '../../utils/payload';
 
 import { _BaseDestination } from './base-destination';
-
-import { syncServerSpec } from '../../utils/payload';
 
 export class GenerationDestination extends _BaseDestination {
   name = 'coxwave-generation-destination';

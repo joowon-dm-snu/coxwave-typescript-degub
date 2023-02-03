@@ -11,7 +11,7 @@ import {
   Result,
   PluginCoverage,
   TPluginCoverage,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { buildResult } from './utils/result-builder';
 

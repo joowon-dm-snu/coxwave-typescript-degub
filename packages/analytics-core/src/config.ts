@@ -8,7 +8,7 @@ import {
   Transport,
   ServerZone,
   TServerZone,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import {
   COXWAVE_SERVER_URL,

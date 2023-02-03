@@ -18,13 +18,13 @@
 13 verbose hasTags true
 14 silly git-describe.sync "576f3b5" => {"refCount":"23","sha":"576f3b5","isDirty":false}
 15 info Assuming all packages changed
-16 verbose updated @coxwave/analytics-browser
-17 verbose updated @coxwave/analytics-client-common
-18 verbose updated @coxwave/analytics-core
-19 verbose updated @coxwave/analytics-types
+16 verbose updated @joowon.kim/analytics-browser
+17 verbose updated @joowon.kim/analytics-client-common
+18 verbose updated @joowon.kim/analytics-core
+19 verbose updated @joowon.kim/analytics-types
 20 verbose git-describe undefined => "576f3b5"
 21 silly git-describe parsed => {"refCount":"23","sha":"576f3b5","isDirty":false}
-22 silly independent for @coxwave/analytics-browser at /Users/joowonkim/Repo/coxwave-typescript/packages/analytics-browser
+22 silly independent for @joowon.kim/analytics-browser at /Users/joowonkim/Repo/coxwave-typescript/packages/analytics-browser
 23 error TypeError: Cannot read properties of undefined (reading '0')
 23 error     at npa (/Users/joowonkim/Repo/coxwave-typescript/node_modules/npm-package-arg/npa.js:35:25)
 23 error     at npa (/Users/joowonkim/Repo/coxwave-typescript/node_modules/npm-package-arg/npa.js:32:14)

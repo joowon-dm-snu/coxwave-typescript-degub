@@ -1,4 +1,4 @@
-import { Storage } from '@coxwave/analytics-types';
+import { Storage } from '@joowon.kim/analytics-types';
 
 export class MemoryStorage<T> implements Storage<T> {
   memoryStorage: Map<string, T> = new Map();

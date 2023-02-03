@@ -25,5 +25,5 @@ Check our guidelines for repo contributions on [CONTRIBUTING.md](https://github.
 
 ## Projects
 
-* [@coxwave/analytics-browser](https://github.com/coxwave/coxwave-typescript/tree/main/packages/analytics-browser): Coxwave SDK for Web
-* [@coxwave/analytics-node](https://github.com/coxwave/coxwave-typescript/tree/main/packages/analytics-node): Coxwave SDK for Node.js
+* [@joowon.kim/analytics-browser](https://github.com/coxwave/coxwave-typescript/tree/main/packages/analytics-browser): Coxwave SDK for Web
+* [@joowon.kim/analytics-node](https://github.com/coxwave/coxwave-typescript/tree/main/packages/analytics-node): Coxwave SDK for Node.js

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import * as coxwave from '@coxwave/analytics-browser';
+import * as coxwave from '@joowon.kim/analytics-browser';
 
 /**
  * Start by calling coxwave.init(). This must be done before any event tracking
@@ -16,13 +16,13 @@ import * as coxwave from '@coxwave/analytics-browser';
  * 
  * Optionally, a user id can be provided when calling init()
  * ```
- * coxwave.init('PROJECT_TOKEN', {userId: 'example.react.user@coxwave.com'})
+ * coxwave.init('PROJECT_TOKEN', {userId: 'example.react.user@joowon.kim.com'})
  * ```
  * 
  * Optionally, a config object can be provided. Refer to https://coxwave.github.io/coxwave-typescript/interfaces/Types.BrowserConfig.html
  * for object properties.
  */
-coxwave.init('PROJECT_TOKEN', {userId: 'example.react.user@coxwave.com'});
+coxwave.init('PROJECT_TOKEN', {userId: 'example.react.user@joowon.kim.com'});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -1,4 +1,4 @@
-import { Event, Result, Status } from '@coxwave/analytics-types';
+import { Event, Result, Status } from '@joowon.kim/analytics-types';
 
 export const buildResult = (
   event: Event,

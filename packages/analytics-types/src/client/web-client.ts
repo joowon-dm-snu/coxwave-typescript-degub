@@ -1,9 +1,8 @@
 import { BrowserOptions, ReactNativeOptions } from '../config';
 import { CoxwaveReturn } from '../coxwave-promise';
+import { TTransportType } from '../transport';
 
 import { BaseClient } from './base-client';
-
-import { TTransportType } from '../transport';
 
 interface Client extends BaseClient {
   /**
@@ -120,7 +119,7 @@ interface Client extends BaseClient {
    *
    *
    * ```typescript
-   * import { reset } from '@coxwave/analytics-browser';
+   * import { reset } from '@joowon.kim/analytics-browser';
    *
    * reset();
    * ```

@@ -1,4 +1,4 @@
-import { Event, AvailableEventType, DestinationContext, Status } from '@coxwave/analytics-types';
+import { Event, AvailableEventType, DestinationContext, Status } from '@joowon.kim/analytics-types';
 
 import { INVALID_PROJECT_TOKEN, MISSING_PROJECT_TOKEN_MESSAGE, UNEXPECTED_ERROR_MESSAGE } from '../../../src/messages';
 import { _BaseDestination } from '../../../src/plugins/destinations';

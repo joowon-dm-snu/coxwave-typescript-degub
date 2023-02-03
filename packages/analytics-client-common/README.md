@@ -1,4 +1,4 @@
-# @coxwave/analytics-node
+# @joowon.kim/analytics-node
 
 Official Coxwave SDK for Node.js
 
@@ -12,8 +12,8 @@ This package is published on NPM registry and is available to be installed using
 
 ```sh
 # npm
-npm install @coxwave/analytics-node
+npm install @joowon.kim/analytics-node
 
 # yarn
-yarn add @coxwave/analytics-node
+yarn add @joowon.kim/analytics-node
 ```

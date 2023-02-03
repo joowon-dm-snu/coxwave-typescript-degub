@@ -17,7 +17,7 @@ import {
   ValidPropertyType,
   SpecialGenerationPropertyKey,
   PredefinedProperties,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { UUID } from './uuid';
 

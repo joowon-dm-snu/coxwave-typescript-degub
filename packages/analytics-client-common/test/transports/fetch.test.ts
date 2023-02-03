@@ -1,4 +1,4 @@
-import { Status } from '@coxwave/analytics-types';
+import { Status } from '@joowon.kim/analytics-types';
 
 import { FetchTransport } from '../../src/transports/fetch';
 import { PROJECT_TOKEN } from '../helpers/constants';

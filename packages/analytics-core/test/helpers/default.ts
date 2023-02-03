@@ -1,4 +1,4 @@
-import { Config } from '@coxwave/analytics-types';
+import { Config } from '@joowon.kim/analytics-types';
 
 import { getDefaultConfig } from '../../src/config';
 

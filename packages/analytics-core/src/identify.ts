@@ -1,4 +1,4 @@
-import { ValidPropertyType, Identify as IIdentify, IdentifyProperties } from '@coxwave/analytics-types';
+import { ValidPropertyType, Identify as IIdentify, IdentifyProperties } from '@joowon.kim/analytics-types';
 
 import { isValidProperties } from './utils/valid-properties';
 

@@ -5,9 +5,7 @@ import {
   PluginCoverage,
   Result,
   SpecialEventName,
-} from '@coxwave/analytics-types';
-
-import { _BaseDestination } from './base-destination';
+} from '@joowon.kim/analytics-types';
 
 import { createServerConfig } from '../../config';
 import {
@@ -17,6 +15,8 @@ import {
 } from '../../constants';
 import { MISSING_PROJECT_TOKEN_MESSAGE, UNEXPECTED_ERROR_MESSAGE } from '../../messages';
 import { syncIdentifyServerSpec } from '../../utils/payload';
+
+import { _BaseDestination } from './base-destination';
 
 export class IdentifyDestination extends _BaseDestination {
   name = 'coxwave-identify-destination';

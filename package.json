@@ -16,8 +16,8 @@
     "postinstall": "husky install",
     "test": "lerna run test --stream",
     "test:examples": "jest --env=jsdom --coverage=false examples",
-    "test:unit": "lerna run test --stream --ignore @coxwave/analytics-*-test",
-    "test:e2e": "lerna run test --stream --scope @coxwave/analytics-*-test",
+    "test:unit": "lerna run test --stream --ignore @joowon.kim/analytics-*-test",
+    "test:e2e": "lerna run test --stream --scope @joowon.kim/analytics-*-test",
     "version": "git add -A"
   },
   "devDependencies": {

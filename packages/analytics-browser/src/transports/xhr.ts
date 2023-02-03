@@ -1,5 +1,5 @@
-import { BaseTransport } from '@coxwave/analytics-core';
-import { Payload, Response, Transport } from '@coxwave/analytics-types';
+import { BaseTransport } from '@joowon.kim/analytics-core';
+import { Payload, Response, Transport } from '@joowon.kim/analytics-types';
 
 export class XHRTransport extends BaseTransport implements Transport {
   private state = {

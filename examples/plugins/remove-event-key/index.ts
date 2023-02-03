@@ -1,13 +1,13 @@
-import { createInstance } from '@coxwave/analytics-browser';
-import { EnrichmentPlugin, PluginCoverage, PluginType } from '@coxwave/analytics-types';
-import { PredefinedProperties } from '@coxwave/analytics-types/src';
+import { createInstance } from '@joowon.kim/analytics-browser';
+import { EnrichmentPlugin, PluginCoverage, PluginType } from '@joowon.kim/analytics-types';
+import { PredefinedProperties } from '@joowon.kim/analytics-types/src';
 
 type KeyOfEvent = keyof PredefinedProperties;
 
 /**
  * This is an example plugin that enriches all events by removing a list of keys from the
  * event payload. This plugin is helpful in cases where users prefer not to use default
- * values set by the @coxwave/analytics-browser library, for example:
+ * values set by the @joowon.kim/analytics-browser library, for example:
  * - `event.ip`
  *
  * @param keysToRemove

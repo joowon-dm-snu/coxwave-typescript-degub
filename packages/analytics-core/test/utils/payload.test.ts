@@ -1,4 +1,4 @@
-import { AvailableEventType, BaseEvent, IdentifyEvent, SpecialEventName } from '@coxwave/analytics-types';
+import { AvailableEventType, BaseEvent, IdentifyEvent, SpecialEventName } from '@joowon.kim/analytics-types';
 
 import { syncServerSpec, syncIdentifyServerSpec } from '../../src/utils/payload';
 import { ALIAS_NAME } from '../helpers/default';

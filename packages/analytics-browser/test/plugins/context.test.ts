@@ -1,4 +1,4 @@
-import { AvailableEventType, Event } from '@coxwave/analytics-types';
+import { AvailableEventType, Event } from '@joowon.kim/analytics-types';
 
 import { Context } from '../../src/plugins/context';
 import { DISTINCT_ID, useDefaultConfig } from '../helpers/default';
@@ -27,7 +27,7 @@ describe('context', () => {
     test('should execute plugin', async () => {
       const context = new Context();
       jest.spyOn(context, 'isSessionValid').mockReturnValue(true);
-      const config = useDefaultConfig('user@coxwave.com', {
+      const config = useDefaultConfig('user@joowon.kim.com', {
         distinctId: DISTINCT_ID,
         deviceId: 'deviceId',
         sessionId: 1,
@@ -52,13 +52,13 @@ describe('context', () => {
       expect(firstContextEvent.properties?.$ip).toEqual('$remote');
       expect(firstContextEvent.properties?.$deviceId).toEqual('deviceId');
       expect(firstContextEvent.properties?.$sessionId).toEqual(1);
-      expect(firstContextEvent.properties?.$userId).toEqual('user@coxwave.com');
+      expect(firstContextEvent.properties?.$userId).toEqual('user@joowon.kim.com');
     });
 
     test('should not return the properties when the tracking options are false', async () => {
       const context = new Context();
       jest.spyOn(context, 'isSessionValid').mockReturnValue(true);
-      const config = useDefaultConfig('user@coxwave.com', {
+      const config = useDefaultConfig('user@joowon.kim.com', {
         distinctId: DISTINCT_ID,
         deviceId: 'deviceId',
         sessionId: 1,
@@ -92,13 +92,13 @@ describe('context', () => {
       expect(firstContextEvent.properties?.$time).toBeDefined();
       expect(firstContextEvent.properties?.$deviceId).toEqual('deviceId');
       expect(firstContextEvent.properties?.$sessionId).toEqual(1);
-      expect(firstContextEvent.properties?.$userId).toEqual('user@coxwave.com');
+      expect(firstContextEvent.properties?.$userId).toEqual('user@joowon.kim.com');
     });
 
     test('should be overwritten by the context', async () => {
       const context = new Context();
       jest.spyOn(context, 'isSessionValid').mockReturnValue(true);
-      const config = useDefaultConfig('user@coxwave.com', {
+      const config = useDefaultConfig('user@joowon.kim.com', {
         deviceId: 'deviceId',
         sessionId: 1,
       });
@@ -120,7 +120,7 @@ describe('context', () => {
     test('should create new session', async () => {
       const plugin = new Context();
       jest.spyOn(plugin, 'isSessionValid').mockReturnValue(false);
-      const config = useDefaultConfig('user@coxwave.com', {
+      const config = useDefaultConfig('user@joowon.kim.com', {
         sessionId: 1,
       });
       await plugin.setup(config);

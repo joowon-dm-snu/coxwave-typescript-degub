@@ -1,9 +1,9 @@
-import { MemoryStorage } from '@coxwave/analytics-core';
-import { UserSession } from '@coxwave/analytics-types';
-
-import { PROJECT_TOKEN } from './helpers/constants';
+import { MemoryStorage } from '@joowon.kim/analytics-core';
+import { UserSession } from '@joowon.kim/analytics-types';
 
 import { SessionManager } from '../src/session-manager';
+
+import { PROJECT_TOKEN } from './helpers/constants';
 
 describe('session-manager', () => {
   describe('load', () => {

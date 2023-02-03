@@ -1,14 +1,14 @@
-import * as BrowserUtils from '@coxwave/analytics-client-common';
-import { SessionManager, FetchTransport } from '@coxwave/analytics-client-common';
-import * as core from '@coxwave/analytics-core';
-import { LogLevel, Storage, TransportType, UserSession } from '@coxwave/analytics-types';
-
-import { DISTINCT_ID } from './helpers/default';
+import * as BrowserUtils from '@joowon.kim/analytics-client-common';
+import { SessionManager, FetchTransport } from '@joowon.kim/analytics-client-common';
+import * as core from '@joowon.kim/analytics-core';
+import { LogLevel, Storage, TransportType, UserSession } from '@joowon.kim/analytics-types';
 
 import * as Config from '../src/config';
 import { createTransport } from '../src/config';
 import * as LocalStorageModule from '../src/storage/local-storage';
 import { XHRTransport } from '../src/transports/xhr';
+
+import { DISTINCT_ID } from './helpers/default';
 
 describe('config', () => {
   const PROJECT_TOKEN = 'projectToken';

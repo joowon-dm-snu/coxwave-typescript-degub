@@ -1,12 +1,12 @@
-import { FetchTransport } from '@coxwave/analytics-client-common';
-import * as core from '@coxwave/analytics-core';
-import { Status, TransportType, UserSession } from '@coxwave/analytics-types';
-
-import { PROJECT_TOKEN, USER_ID, DEVICE_ID, DISTINCT_ID, THREAD_ID } from './helpers/default';
+import { FetchTransport } from '@joowon.kim/analytics-client-common';
+import * as core from '@joowon.kim/analytics-core';
+import { Status, TransportType, UserSession } from '@joowon.kim/analytics-types';
 
 import { CoxwaveBrowser } from '../src/browser-client';
 import * as Config from '../src/config';
 import * as SnippetHelper from '../src/utils/snippet-helper';
+
+import { PROJECT_TOKEN, USER_ID, DEVICE_ID, DISTINCT_ID, THREAD_ID } from './helpers/default';
 
 describe('browser-client', () => {
   afterEach(() => {
@@ -110,10 +110,10 @@ describe('browser-client', () => {
       return new Promise<void>((resolve) => {
         const client = new CoxwaveBrowser();
         void client.init(PROJECT_TOKEN, {}).then(() => {
-          expect(client.getUserId()).toBe('user@coxwave.com');
+          expect(client.getUserId()).toBe('user@joowon.kim.com');
           resolve();
         });
-        client.setUserId('user@coxwave.com');
+        client.setUserId('user@joowon.kim.com');
       });
     });
   });

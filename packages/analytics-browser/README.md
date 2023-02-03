@@ -1,4 +1,4 @@
-# @coxwave/analytics-browser
+# @joowon.kim/analytics-browser
 
 Official Coxwave SDK for Web
 
@@ -12,8 +12,8 @@ This package is published on NPM registry and is available to be installed using
 
 ```sh
 # npm
-npm install @coxwave/analytics-browser
+npm install @joowon.kim/analytics-browser
 
 # yarn
-yarn add @coxwave/analytics-browser
+yarn add @joowon.kim/analytics-browser
 ```

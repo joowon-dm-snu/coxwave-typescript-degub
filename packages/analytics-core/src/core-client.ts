@@ -9,7 +9,7 @@ import {
   GenerationProperties,
   FeedbackProperties,
   PredefinedProperties,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { CLIENT_NOT_INITIALIZED, OPT_OUT_MESSAGE } from './messages';
 import { Timeline } from './timeline';

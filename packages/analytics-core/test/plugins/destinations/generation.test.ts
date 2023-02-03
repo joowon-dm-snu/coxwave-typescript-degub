@@ -1,4 +1,4 @@
-import { Event, AvailableEventType, Status } from '@coxwave/analytics-types';
+import { Event, AvailableEventType, Status } from '@joowon.kim/analytics-types';
 
 import { MISSING_PROJECT_TOKEN_MESSAGE } from '../../../src/messages';
 import { GenerationDestination } from '../../../src/plugins/destinations';

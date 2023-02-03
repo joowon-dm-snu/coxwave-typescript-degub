@@ -1,15 +1,14 @@
-import { LogLevel, ServerZone } from '@coxwave/analytics-types';
+import { LogLevel, ServerZone } from '@joowon.kim/analytics-types';
 
 import { Config, createServerConfig, getServerUrl } from '../src/config';
-
-import { PROJECT_TOKEN, useDefaultConfig } from './helpers/default';
-
 import {
   COXWAVE_BATCH_SERVER_URL,
   COXWAVE_SERVER_URL,
   EU_COXWAVE_BATCH_SERVER_URL,
   EU_COXWAVE_SERVER_URL,
 } from '../src/constants';
+
+import { PROJECT_TOKEN, useDefaultConfig } from './helpers/default';
 
 describe('config', () => {
   test('should create default config', () => {

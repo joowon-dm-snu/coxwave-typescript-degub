@@ -1,4 +1,4 @@
-import { AvailableEventType, Event } from '@coxwave/analytics-types';
+import { AvailableEventType, Event } from '@joowon.kim/analytics-types';
 import { removeEventKeyEnrichment } from './';
 
 describe('remove-event-key-enrichment', () => {

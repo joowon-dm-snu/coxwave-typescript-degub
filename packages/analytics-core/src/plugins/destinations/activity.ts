@@ -3,13 +3,12 @@ import {
   ActivityPayload,
   ActivityEvent,
   PluginCoverage,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { SERVER_ACTIVITIES_PATH } from '../../constants';
+import { syncServerSpec } from '../../utils/payload';
 
 import { _BaseDestination } from './base-destination';
-
-import { syncServerSpec } from '../../utils/payload';
 
 export class ActivityDestination extends _BaseDestination {
   name = 'coxwave-activity-destination';

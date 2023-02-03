@@ -1,6 +1,4 @@
-import { Event, Plugin, PluginCoverage, PluginType } from '@coxwave/analytics-types';
-
-import { useDefaultConfig, promiseState } from './helpers/default';
+import { Event, Plugin, PluginCoverage, PluginType } from '@joowon.kim/analytics-types';
 
 import { Timeline } from '../src/timeline';
 import {
@@ -9,6 +7,8 @@ import {
   createLogEvent,
   createTrackEvent,
 } from '../src/utils/event-builder';
+
+import { useDefaultConfig, promiseState } from './helpers/default';
 
 describe('timeline', () => {
   let timeline = new Timeline();

@@ -1,4 +1,4 @@
-import { InstanceProxy } from '@coxwave/analytics-types';
+import { InstanceProxy } from '@joowon.kim/analytics-types';
 
 declare global {
   // globalThis only includes `var` declarations

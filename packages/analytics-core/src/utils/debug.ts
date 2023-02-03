@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Config, LogLevel, LogConfig, DebugContext } from '@coxwave/analytics-types';
+import { Config, LogLevel, LogConfig, DebugContext } from '@joowon.kim/analytics-types';
 
 import { CoxwaveCore } from '../core-client';
 

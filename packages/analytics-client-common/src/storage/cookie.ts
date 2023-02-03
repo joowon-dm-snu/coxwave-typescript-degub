@@ -1,4 +1,4 @@
-import { Storage, CookieStorageOptions } from '@coxwave/analytics-types';
+import { Storage, CookieStorageOptions } from '@joowon.kim/analytics-types';
 
 import { getGlobalScope } from '../global-scope';
 

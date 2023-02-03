@@ -1,6 +1,6 @@
-import { SessionManager } from '@coxwave/analytics-client-common';
-import { MemoryStorage } from '@coxwave/analytics-core';
-import { BrowserConfig as IBrowserConfig, InitOptions, UserSession } from '@coxwave/analytics-types';
+import { SessionManager } from '@joowon.kim/analytics-client-common';
+import { MemoryStorage } from '@joowon.kim/analytics-core';
+import { BrowserConfig as IBrowserConfig, InitOptions, UserSession } from '@joowon.kim/analytics-types';
 
 import { BrowserConfig } from '../../src/config';
 

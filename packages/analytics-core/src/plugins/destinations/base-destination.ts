@@ -14,7 +14,7 @@ import {
   SuccessResponse,
   PluginCoverage,
   TPluginCoverage,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { createServerConfig } from '../../config';
 import {

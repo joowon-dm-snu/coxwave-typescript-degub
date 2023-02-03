@@ -1,4 +1,4 @@
-import { CoxwaveReturn, InstanceProxy, QueueProxy, Result } from '@coxwave/analytics-types';
+import { CoxwaveReturn, InstanceProxy, QueueProxy, Result } from '@joowon.kim/analytics-types';
 
 /**
  * Applies the proxied functions on the proxied coxwave snippet to an instance of the real object.

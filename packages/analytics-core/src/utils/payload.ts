@@ -1,4 +1,4 @@
-import { Event, IdentifyEvent } from '@coxwave/analytics-types';
+import { Event, IdentifyEvent } from '@joowon.kim/analytics-types';
 
 export const syncServerSpec = (event: Event): Event => {
   const syncedEvent = {

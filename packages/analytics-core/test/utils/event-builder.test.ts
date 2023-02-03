@@ -1,4 +1,4 @@
-import { AvailableEventType, SpecialEventName, MediaType } from '@coxwave/analytics-types';
+import { AvailableEventType, SpecialEventName, MediaType } from '@joowon.kim/analytics-types';
 
 import { Identify } from '../../src/identify';
 import {

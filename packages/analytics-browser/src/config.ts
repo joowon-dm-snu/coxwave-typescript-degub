@@ -1,5 +1,5 @@
-import { CookieStorage, getQueryParams, SessionManager, FetchTransport } from '@coxwave/analytics-client-common';
-import { Config, MemoryStorage, UUID, getCookieName } from '@coxwave/analytics-core';
+import { CookieStorage, getQueryParams, SessionManager, FetchTransport } from '@joowon.kim/analytics-client-common';
+import { Config, MemoryStorage, UUID, getCookieName } from '@joowon.kim/analytics-core';
 import {
   Event,
   BrowserOptions,
@@ -10,7 +10,7 @@ import {
   UserSession,
   SessionManager as ISessionManager,
   TTransportType,
-} from '@coxwave/analytics-types';
+} from '@joowon.kim/analytics-types';
 
 import { LocalStorage } from './storage/local-storage';
 import { XHRTransport } from './transports/xhr';

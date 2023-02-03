@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { LogLevel } from '@coxwave/analytics-types';
+import { LogLevel } from '@joowon.kim/analytics-types';
 
 import { CoxwaveCore } from '../../src/index';
 import {

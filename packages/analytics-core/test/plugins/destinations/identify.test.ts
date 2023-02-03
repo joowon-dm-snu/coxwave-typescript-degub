@@ -1,4 +1,4 @@
-import { Event, AvailableEventType, Status, SpecialEventName, DestinationContext } from '@coxwave/analytics-types';
+import { Event, AvailableEventType, Status, SpecialEventName, DestinationContext } from '@joowon.kim/analytics-types';
 
 import {
   SERVER_IDENTIFY_REGISTER_PATH,

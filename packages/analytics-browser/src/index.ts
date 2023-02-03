@@ -29,5 +29,5 @@ export const {
   feedback,
 } = client;
 export { runQueuedFunctions } from './utils/snippet-helper';
-export { Identify } from '@coxwave/analytics-core';
-export * as Types from '@coxwave/analytics-types';
+export { Identify } from '@joowon.kim/analytics-core';
+export * as Types from '@joowon.kim/analytics-types';

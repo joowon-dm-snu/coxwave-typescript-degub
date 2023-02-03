@@ -1,5 +1,5 @@
-import { getGlobalScope } from '@coxwave/analytics-client-common';
-import { Storage } from '@coxwave/analytics-types';
+import { getGlobalScope } from '@joowon.kim/analytics-client-common';
+import { Storage } from '@joowon.kim/analytics-types';
 
 export class LocalStorage<T> implements Storage<T> {
   async isEnabled(): Promise<boolean> {

@@ -1,5 +1,5 @@
-import { getCookieName } from '@coxwave/analytics-core';
-import { UserSession, Storage, SessionManager as ISessionManager } from '@coxwave/analytics-types';
+import { getCookieName } from '@joowon.kim/analytics-core';
+import { UserSession, Storage, SessionManager as ISessionManager } from '@joowon.kim/analytics-types';
 
 export class SessionManager implements ISessionManager {
   storageKey: string;

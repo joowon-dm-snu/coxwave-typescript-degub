@@ -1,4 +1,4 @@
-import { AvailableEventType, Status } from '@coxwave/analytics-types';
+import { AvailableEventType, Status } from '@joowon.kim/analytics-types';
 
 import { buildResult } from '../../src/utils/result-builder';
 

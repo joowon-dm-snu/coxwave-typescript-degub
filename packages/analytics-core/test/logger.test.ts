@@ -1,4 +1,4 @@
-import { LogLevel } from '@coxwave/analytics-types';
+import { LogLevel } from '@joowon.kim/analytics-types';
 
 import { Logger } from '../src/logger';
 
