@@ -1,6 +1,6 @@
 {
   "name": "@joowon.kim/analytics-core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "author": "Coxwave",
   "homepage": "https://github.com/coxwave/coxwave-typescript",
@@ -34,7 +34,7 @@
     "url": "https://github.com/coxwave/coxwave-typescript/issues"
   },
   "dependencies": {
-    "@joowon.kim/analytics-types": "^0.2.0",
+    "@joowon.kim/analytics-types": "^0.2.1",
     "tslib": "^2.4.1"
   },
   "files": [
